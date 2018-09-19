@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Tablica kanban</title>
+		<link rel="stylesheet" href="css/style.prefixed.css">
+	</head>
+	<body>
+		<div id="board" class="board">
+			<h1>Tablica kanban</h1>
+			<button class="create-column">Dodaj kolumnę</button>
+			<div class="column-container"></div>
+		</div>
+		
+		<script id="column-template" type="x-tmpl-mustache">
+		<div class="column">
+			<h2 class="column-title">{{ name }}</h2>
+		<ul id={{ id }} class="column-card-list"></ul>
+		<button class="btn-delete">X</button>
+		<button class="add-card">Add a card</button>
+	</div>
+	</script>
+	
+	<script id="card-template" type="x-tmpl-mustache">
+		<div class="card">
+			<p class="card-description">{{ description }}</p>
+			<button class="btn-delete">x</button>
+		</div
+	</script>
+	<script src="js/mustache.min.js"></script>
+	<script src="js/Sortable.min.js"></script>
+	<!--TO JEST JUŻ NIE POTRZEBNE-->
+	<!--<script type="text/javascript" src="script.js"></script>-->
+	
+	<!--TERAZ UŻYWAMY TEGO-->
+	<script type="text/javascript" src="js/Column.js"></script>
+	<script type="text/javascript" src="js/Card.js"></script>
+	<script type="text/javascript" src="js/Board.js"></script>
+	<script type="text/javascript" src="js/App.js"></script>
+</body>
+</html>
