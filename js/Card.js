@@ -18,12 +18,12 @@ Card.prototype = {
 	removeCard: function() {
     var self = this;
 
-    fetch(badeUrl + '/card/' + self.id, { method: 'DELETE', headers: myHeaders })
+    fetch(baseUrl + '/card/' + self.id, { method: 'DELETE', headers: myHeaders })
       .then(function (resp) {
         return resp.json();
       })
       .then(function (resp) {
-        self.element.parentNode.removeChild(this.element);
+        self.element.remove(this.element);
       })
     }
 }

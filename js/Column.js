@@ -25,9 +25,9 @@ function Column(id, name) {
 	      		body: data,
 	      		})
 	      		.then(function (resp) {
-	      			return res.json();
+	      			return resp.json();
 	      		})
-	      		.then(function () {
+	      		.then(function (resp) {
 	      			var card = new Card(resp.id, cardName);
 			      	self.addCard(new Card(cardName));
 	      		});
@@ -42,11 +42,11 @@ Column.prototype = {
 	removeColumn: function() {
 	  var self = this;
 	  fetch(baseUrl + '/column/' + self.id, { method: 'DELETE', headers: myHeaders })
-	  	.then(function (resp) {
-	  		return resp.json();
-	  	})
-	  	.then(function (resp) {
-	  		self.element.parentNode.removeChild(self.element);
-	  	})
+	    .then(function(resp) {
+	      return resp.json();
+	    })
+	    .then(function(resp) {
+	      self.element.parentNode.removeChild(self.element);
+	    });
 	}
 };
